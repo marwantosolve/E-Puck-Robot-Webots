@@ -1,0 +1,260 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.30833173920479495 -0.604085138804037 0.7348555529320396 5.069046057958308
+  position -1.568796463081557 1.812585140957185 2.3687322316270394
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.000273932 -0.000982353 0
+  rotation 0 0 1 -0.523595307179586
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/asphalt/asphalt_base_color.jpg"
+      ]
+    }
+    roughnessMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/asphalt/asphalt_roughness.jpg"
+      ]
+    }
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/asphalt/asphalt_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/asphalt/asphalt_occlusion.jpg"
+      ]
+    }
+  }
+  wallHeight 0.15
+  wallAppearance PBRAppearance {
+    baseColor 0 0 0
+    roughness 0.5
+    metalness 0
+  }
+}
+Robot {
+  translation 0 0 0.0200709
+  rotation 1.156630463952268e-05 1.2818288921991075e-05 -0.9999999998509561 -0.5597186938995747
+  children [
+    DistanceSensor {
+      translation 0.014 -0.044 0.005
+      rotation 0 0 1 -1.1781003061004252
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "Lsensor"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.013 -0.044 0.005
+      rotation 0 0 1 -1.9634996938995748
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "Rsensor"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 291.05642941910173
+        anchor -0.0274 -0.04 -0.0061
+      }
+      device [
+        RotationalMotor {
+          name "RBmotor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0274 -0.04000000004467916 -0.006100000031256579
+        rotation 0.6474059984934439 0.402153714998959 0.6474085747248356 2.376872112593336
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.5 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.014
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 11113.463096251955
+        anchor 0.0274 -0.04 -0.0061
+      }
+      device [
+        RotationalMotor {
+          name "LBmotor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0274 -0.039999999946913924 -0.006099999987546829
+        rotation 0.5615165588958001 -0.6077793997865196 0.5615187933461865 4.233829162367696
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.5 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.014
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 291.05643810257413
+        anchor -0.0274 0.04 -0.0061
+      }
+      device [
+        RotationalMotor {
+          name "RFmotor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0274 0.039999999948035214 -0.006100000016518855
+        rotation 0.6474070127015967 0.4021504495300059 0.6474095889370257 2.376877734329857
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.5 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.014
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 11113.463107044468
+        anchor 0.0274 0.04 -0.0061
+      }
+      device [
+        RotationalMotor {
+          name "LFmotor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0274 0.040000000054384865 -0.006100000003935567
+        rotation 0.5615143132620644 -0.6077835491825619 0.561516547703521 4.233835222530571
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.5 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.014
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF robot_body Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.8 0.2
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.05 0.09 0.03
+      }
+    }
+  ]
+  name "Dogzi"
+  boundingObject USE robot_body
+  physics Physics {
+  }
+  controller "obstacle_avoidance_controller"
+}
+OilBarrel {
+  translation 0.157 0.222 0.0447
+  name "oil barrel (1)"
+  height 0.3
+  radius 0.07
+}
+OilBarrel {
+  translation -0.158 -0.222 0.0447
+  name "oil barrel (2)"
+  height 0.3
+  radius 0.07
+}
+OilBarrel {
+  translation -0.157 0.222 0.0447
+  name "oil barrel (3)"
+  height 0.3
+  radius 0.07
+}
+OilBarrel {
+  translation 0.157 -0.224 0.0447
+  name "oil barrel (4)"
+  height 0.3
+  radius 0.07
+}
